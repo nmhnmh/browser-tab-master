@@ -1,0 +1,121 @@
+body{
+  padding: 0;
+}
+
+#windows-and-tabs{
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  width: 49%;
+  display: inline-block;
+  padding: 3px;
+  vertical-align: top;
+}
+
+#saved-groups{
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: inline-block;
+  width: 49%;
+  padding: 3px;
+  vertical-align: top;
+}
+
+.window-title{
+  padding: 10px 10px;
+  font-size: 1rem;
+  font-weight: bolder;
+  background-color: #ddd;
+}
+
+.window-tab{
+  padding: 5px;
+}
+
+.window-tab-title{
+  font-size: 1rem;
+}
+
+.window-tab-url{
+  padding: 5px 0;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.window-tab:hover{
+  background-color: black;
+}
+
+.window-tab:hover .window-tab-title,
+.window-tab:hover .window-tab-url{
+  color: #ddd;
+}
+
+.create-new-tab-group{
+  margin: 10px 0;
+  border: 3px dashed #ddd;
+  padding: 50px 0px;
+  font-size: 2rem;
+  text-align: center;
+  color: #ddd;
+}
+
+#new-tab-group-form{
+  padding: 4px 0;
+  display: none;
+}
+
+.input{
+  font-size: 1rem;
+  width: 300px;
+}
+
+.save_btn{
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 2px;
+  font-size: 1rem;
+}
+
+.cancel_btn{
+  border: none;
+  background-color: red;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 2px;
+  font-size: 1rem;
+}
+
+.group-title{
+  padding: 10px 10px;
+  font-size: 1rem;
+  font-weight: bolder;
+  background-color: #ddd;
+}
+
+.group-tab{
+  padding: 5px;
+}
+
+.group-tab-title{
+  font-size: 1rem;
+}
+
+.group-tab-url{
+  padding: 5px 0;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.group-tab:hover{
+  background-color: black;
+}
+
+.group-tab:hover .group-tab-title,
+.group-tab:hover .group-tab-url{
+  color: #ddd;
+}

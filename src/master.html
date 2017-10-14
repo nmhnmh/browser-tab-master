@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Browser Tab Master</title>
+    <link href="master.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="windows-and-tabs">
+      <h2>Active Windows({{windows.length}})</h2>
+      <div v-for="window in windows" class="window-area" v-on:drop="group_tab_drop" v-on:dragover="group_tab_over" v-on:dragenter="group_tab_enter" v-on:dragleave="group_tab_leave" v-bind:window-id="window.id">
+        <div class="window-title">Window - {{window.tabs ? window.tabs.length : 0}} Tabs</div>
+        <div v-for="tab in window.tabs" class="window-tab" draggable="true" v-on:dragstart="drag_window_tab" v-on:dragend="drag_window_tab_end" v-bind:data="JSON.stringify({src: 'window', window_id: window.id, tab_id: tab.id, url: tab.url, title: tab.title})">
+          <div class="window-tab-title">{{tab.title}}</div>
+          <div class="window-tab-url">{{tab.url}}</div>
+        </div>
+      </div>
+    </div>
+    <div id="saved-groups">
+      <h2>Saved Tab Groups</h2>
+      <div id="create-new-tab-group" class="create-new-tab-group" v-on:drop="window_tab_drop" v-on:dragover="window_tab_over" v-on:dragenter="window_tab_enter" v-on:dragleave="window_tab_leave">
+        Drag and Drop tabs here to create new group!
+      </div>
+      <div id="new-tab-group-form" v-bind:style="{display: window_id ? 'block' : 'none'}">
+        <input type="text" class="input" placeholder="name of new tab group" v-model="new_group_name">
+        <button class="save_btn" v-on:click="save">Save</button>
+        <button class="cancel_btn" v-on:click="cancel">Cancel</button>
+      </div>
+      <div id="groups-list">
+        <div v-for="group in groups">
+          <div class="group-title" v-bind:group-name="group.name" v-on:dragover="window_tab_over" v-on:dragenter="window_tab_enter" v-on:dragleave="window_tab_leave" v-on:drop="window_tab_drop">{{group.name}} - {{group.tabs ? group.tabs.length : 0}} Tabs</div>
+          <div class="group-tab" draggable="true" v-on:dragstart="drag_group_tab" v-for="tab in group.tabs" v-bind:data="JSON.stringify({src: 'group', url: tab.url, group: group.name})">
+            <div class="group-tab-title">{{tab.title}}</div>
+            <div class="group-tab-url">{{tab.url}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script type="text/javascript" src="vue2.5.0.js"></script> -->
+    <script type="text/javascript" src="vue-dev.js"></script>
+    <script type="text/javascript" src="master.js"></script>
+  </body>
+</html>

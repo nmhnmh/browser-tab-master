@@ -1,0 +1,18 @@
+{
+  "ext_name": {
+    "message": "Browser Tab Master",
+    "description": "This is the name for the extension."
+  },
+  "ext_short_name": {
+    "message": "Browser Tab Master",
+    "description": "This is the short name for the extension."
+  },
+  "ext_description": {
+    "message": "Easily manage your tabs, organize tabs with groups, save tabs for later use.",
+    "description": "A brief introduction for the browser extension."
+  },
+  "ext_title": {
+    "message": "Browser Tab Master",
+    "description": "This is displayed when use click on the extension icon."
+  }
+}
