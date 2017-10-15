@@ -10,14 +10,27 @@
   .screenshot{
     width: 100%;
   }
+  .title{
+    font-family: sans-serif;
+  }
+  .btn{
+    font-family: sans-serif;
+    border-radius: 5px;
+    background-color: #00d200;
+    color: white;
+    text-decoration: none;
+  }
+  .features{
+    font-family: sans-serif;
+  }
   </style>
   <body>
     <div style="width: 80%; margin: 0 auto;">
-      <h1>Browser Tab Master</h1>
+      <h1 class="title">Browser Tab Master - Simple yet Powerful Way to Manage Browser Tabs and Windows</h1>
       <a class="btn" href="https://chrome.google.com/webstore/detail/browser-tab-master/bcbapamhiimefhefkddjbncfgpieccdd">Download from Chrome Webstore</a>
       <a class="btn" href="https://github.com/nmhnmh/browser-tab-master">Soruce code on Github.com</a>
       <h3>Features</h3>
-      <ul>
+      <ul class="features">
         <li>Simple and easy to use, just Drag&Drop</li>
         <li>Saved tabs into groups for later use</li>
         <li>Add tabs to saved groups</li>
@@ -26,7 +39,18 @@
         <li>Multiple window support</li>
         <li>Free and Open Source</li>
       </ul>
-      <img class="screenshot" src="screen-shot.png">
+      <h3>Upcomming Features</h3>
+      <ul class="features">
+        <li>Move tabs between tab groups</li>
+        <li>Move tabs between windows</li>
+        <li>Sort tabs display order inside windows with drag&drop</li>
+        <li>Open all tabs inside a tab group with one click</li>
+        <li>Remove tabs from a tab group without opening it</li>
+        <li>Export saved groups to tsv file, and import saved groups from tsv file</li>
+      </ul>
+      <img class="screenshot" src="dd-create.png">
+      <img class="screenshot" src="dd-add.png">
+      <img class="screenshot" src="dd-open.png">
     </div>
   </body>
 </html>
