@@ -25,7 +25,7 @@ function sync_all_tabs_and_windows(){
         for(let j=0;j<tabs.length;j++){
           //skip special chrome tabs
           let url = tabs[j].url;
-          if(!url.startsWith('chrome-') && !url.startsWith('chrome://'))
+          if(!url.startsWith('chrome-') && !url.startsWith('chrome://') && !url.startsWith('file://'))
             tabs_data.push({url: url, title: tabs[j].title, id: tabs[j].id});
         }
         Vue.set(data.windows[i], 'tabs', tabs_data);
@@ -76,25 +76,25 @@ var windows_and_tabs = new Vue({
       event.preventDefault();
     },
     group_tab_enter: function(event){
-      this.$el.style.border="3px dashed green"
+      event.target.style.backgroundColor="green";
+      event.target.style.color="white";
       event.preventDefault();
     },
     group_tab_leave: function(event){
-      this.$el.style.border="none"
+      event.target.style.backgroundColor="#ddd";
+      event.target.style.color="black";
     },
     group_tab_drop: function(event){
-      var target = event.target;
-      while(!target.classList.contains('window-area')){
-        target=target.parentElement;
-      }
-      var tab_data = JSON.parse(event.dataTransfer.getData('text'));
+      event.target.style.backgroundColor="#ddd";
+      event.target.style.color="black";
 
+      var tab_data = JSON.parse(event.dataTransfer.getData('text'));
       // check where the drop is from
       if(tab_data.src!='group')
         return;
 
       // add tab to window
-      ping_port.postMessage({name: 'open_tab', window: target.getAttribute('window-id'), url: tab_data.url});
+      ping_port.postMessage({name: 'open_tab', window: event.target.getAttribute('window-id'), url: tab_data.url});
       // remove tab from group
       for(let i=0; i<groups_data.groups.length;i++){
         let g=groups_data.groups[i];

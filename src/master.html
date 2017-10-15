@@ -7,11 +7,13 @@
   <body>
     <div id="windows-and-tabs">
       <h2>Active Windows({{windows.length}})</h2>
-      <div v-for="window in windows" class="window-area" v-on:drop="group_tab_drop" v-on:dragover="group_tab_over" v-on:dragenter="group_tab_enter" v-on:dragleave="group_tab_leave" v-bind:window-id="window.id">
-        <div class="window-title">Window - {{window.tabs ? window.tabs.length : 0}} Tabs</div>
-        <div v-for="tab in window.tabs" class="window-tab" draggable="true" v-on:dragstart="drag_window_tab" v-on:dragend="drag_window_tab_end" v-bind:data="JSON.stringify({src: 'window', window_id: window.id, tab_id: tab.id, url: tab.url, title: tab.title})">
-          <div class="window-tab-title">{{tab.title}}</div>
-          <div class="window-tab-url">{{tab.url}}</div>
+      <div v-for="window in windows" class="window-area">
+        <div class="window-title" v-on:drop="group_tab_drop" v-on:dragover="group_tab_over" v-on:dragenter="group_tab_enter" v-on:dragleave="group_tab_leave" v-bind:window-id="window.id">Window - {{window.tabs ? window.tabs.length : 0}} Tabs</div>
+        <div v-if="window.tabs && window.tabs.length>0">
+          <div v-for="tab in window.tabs" class="window-tab" draggable="true" v-on:dragstart="drag_window_tab" v-on:dragend="drag_window_tab_end" v-bind:data="JSON.stringify({src: 'window', window_id: window.id, tab_id: tab.id, url: tab.url, title: tab.title})">
+            <div class="window-tab-title">{{tab.title}}</div>
+            <div class="window-tab-url">{{tab.url}}</div>
+          </div>
         </div>
       </div>
     </div>
