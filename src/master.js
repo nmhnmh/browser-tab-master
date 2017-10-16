@@ -53,10 +53,20 @@ document.addEventListener('unload', function(){
 });
 
 // load all saved groups from storage
-chrome.storage.sync.get(function(data){
-  if(data.groups)
-    Vue.set(groups_data, 'groups', data.groups);
+function load_synced_data(){
+  chrome.storage.sync.get(function(data){
+    if(data.groups)
+      Vue.set(groups_data, 'groups', data.groups);
+  });
+}
+
+chrome.storage.onChanged.addListener(function(changes, area){
+  if(area=='sync'){
+    load_synced_data();
+  }
 });
+
+load_synced_data();
 
 // show all active windows and tabs
 sync_all_tabs_and_windows();
